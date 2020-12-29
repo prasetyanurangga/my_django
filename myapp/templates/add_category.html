@@ -1,0 +1,10 @@
+{% if error_message %} <p> <strong> {{ error_message }} </strong> </p> {% endif %}
+<form action="{% url 'myapp:add_category' %}" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ form.title }}
+	{{ form.image }}
+	<input type="submit" value="send">
+</form>
+{% if uploaded_file_url %}
+	<a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a>
+{% endif %}

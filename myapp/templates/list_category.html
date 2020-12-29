@@ -1,0 +1,9 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+{% if list_category %}
+	<ul>
+		{% for category in list_category %}
+			<li> <a href="{% url 'myapp:detail' category.id %}"> {{ category.title }} </a> </li>
+		{% endfor %}
+	</ul>
+{% endif %}
